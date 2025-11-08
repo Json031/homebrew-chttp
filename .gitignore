@@ -1,0 +1,29 @@
+# Build artifacts
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+
+# Build directories
+build/
+bin/
+obj/
+dist/
+
+# Backup or temp files
+*.log
+*.tmp
+*.swp
+*~
+
+# macOS system files
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+
+# Makefile intermediate files
+*.d
