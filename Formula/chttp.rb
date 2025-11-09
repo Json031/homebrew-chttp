@@ -18,7 +18,7 @@ class Chttp < Formula
   end
 
   test do
-    # New version v1.0.1 for C open-source library chttp
+    # Simply compile a test program
     (testpath/"test.c").write <<~EOS
       #include <chttp.h>
       int main() { return 0; }
