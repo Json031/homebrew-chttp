@@ -18,12 +18,22 @@ class Chttp < Formula
   end
 
   test do
-    # Simply compile a test program
-    (testpath/"test.c").write <<~EOS
-      #include <chttp.h>
-      int main() { return 0; }
-    EOS
-    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lchttp", "-o", "test"
-    system "./test"
+
+  (testpath/"test.c").write <<~EOS
+    #include <chttp.h>
+    int main() { return 0; }
+  EOS
+
+  system ENV.cc,
+         "test.c",
+         "-I#{include}",                              # chttp include
+         "-I#{Formula["cjson"].opt_include}",         # cjson include
+         "-L#{lib}",                                  # chttp lib
+         "-L#{Formula["cjson"].opt_lib}",             # cjson lib
+         "-lcjson", "-lchttp", "-lcurl",
+         "-o", "test_chttp"
+
+  system "./test_chttp"
+
   end
 end
